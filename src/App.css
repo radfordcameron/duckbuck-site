@@ -1,70 +1,108 @@
-@import "tailwindcss";
-
-/* Card container */
-.card {
-  background-color: #1f1f1f;
-  padding: 30px;
-  border-radius: 12px;
+/* Full-Screen Sections */
+.full-screen {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
-  max-width: 500px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Responsive Layout */
+@media (max-width: 768px) {
+  .full-screen {
+    padding: 10px;
+    flex-direction: column;
+  }
+
+/* Ensures content does not shrink on large screens */
+.content {
+  max-width: 80%;
   width: 100%;
 }
-
-/* Heading */
-h1 {
-  font-size: 28px;
-  font-weight: bold;
-  margin-bottom: 20px;
 }
 
-/* Paragraph styling */
-p {
-  font-size: 18px;
-  line-height: 1.5;
-  margin-bottom: 15px;
+/* Navigation Bar */
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 15px 0;
+  text-align: center;
+  z-index: 1000;
 }
 
-/* Icon alignment */
-.icon-container {
+.nav ul {
+  list-style: none;
   display: flex;
   justify-content: center;
   gap: 20px;
-  margin: 20px 0;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
 }
 
-/* Input and button container */
-.input-group {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-/* Input field */
-.input-field {
-  padding: 10px;
-  border: 1px solid #555;
-  border-radius: 5px;
-  background-color: #2a2a2a;
+.nav a {
   color: white;
-  font-size: 16px;
-  flex: 1;
-  max-width: 60%;
-}
-
-/* Button */
-.button {
-  background-color: #007bff;
-  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
   padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-  cursor: pointer;
+  transition: color 0.3s ease-in-out;
 }
 
-.button:hover {
-  background-color: #0056b3;
+.nav a:hover {
+  color: #facc15;
+}
+
+/* Section Background Colors */
+.home {
+  background: #1e293b;
+  color: white;
+}
+
+.tokenomics {
+  background: #334155;
+  color: white;
+}
+
+.how-to-buy {
+  background: #475569;
+  color: white;
+}
+
+/* Content Styling */
+.content {
+  max-width: 800px;
+  width: 100%;
+  text-align: center;
+}
+
+h1, h2 {
+  margin-bottom: 20px;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+ul, ol {
+  text-align: left;
+  margin: 0 auto;
+  padding-left: 20px;
+  max-width: 600px;
+}
+
+li {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* Ensure smooth scrolling */
+html {
+  scroll-behavior: smooth;
 }
