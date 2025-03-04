@@ -7,7 +7,7 @@ export default function ComingSoon() {
     <div className="card">
       <h1>🚀 The Duck Buck Website is Coming Soon!</h1>
       <p>
-        You can buy and trade Duck Bucks on <strong>Uniswap</strong>! Use <strong> MetaMask Wallet</strong> and connect it to Uniswap to easily trade Duck Buck.
+        You can already buy and trade Duck Bucks on <strong>Uniswap</strong>! Use <strong> MetaMask Wallet</strong> and connect it to Uniswap to easily trade Duck Buck.
       </p>
       
       <div className="icon-container">
