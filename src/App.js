@@ -109,7 +109,7 @@ export default function DuckBuckWebsite() {
            {/* How to Trade Section */}
            <section id="trade" className="min-h-screen flex flex-col justify-center items-center bg-base-200 text-center p-10 rounded-lg shadow-lg pt-24">
         <div className="container mx-auto max-w-4xl">
-          <h2 className="text-4xl sm:text-5xl font-bold mb-8">How to Buy Duck Bucks ($DBX)</h2>
+          <h2 className="text-4xl sm:text-5xl font-bold mb-8">How to Buy Duck Buck ($DBX)</h2>
           <div className="space-y-6 text-left">
             <div className="card bg-base-100 p-6 shadow-md">
               <h3 className="text-sm font-bold text-primary uppercase">Step 1: Set Up MetaMask</h3>
