@@ -1,19 +1,37 @@
-
+import { useEffect, useState } from 'react';
 
 export default function DuckBuckWebsite() {
+  const [activeSection, setActiveSection] = useState("hero");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ["hero", "story", "tokenomics", "trade"];
+      let currentSection = "hero";
+
+      for (let section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+            currentSection = section;
+          }
+        }
+      }
+      setActiveSection(currentSection);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-r from-gray-900 to-black text-white">
-      {/* Navigation Bar */}
-      <div className="fixed top-0 left-0 w-full bg-black bg-opacity-80 backdrop-blur-md p-4 z-50 shadow-md">
-        <div className="container mx-auto flex justify-between items-center">
-          <a className="text-2xl font-bold text-primary" href="#hero">Duck Buck</a>
-          <div className="flex space-x-6">
-            <a href="#hero" className="text-white hover:text-primary smooth-scroll">Home</a>
-            <a href="#story" className="text-white hover:text-primary smooth-scroll">Story</a>
-            <a href="#tokenomics" className="text-white hover:text-primary smooth-scroll">Quackonomics</a>
-            <a href="#trade" className="text-white hover:text-primary smooth-scroll">Trade</a>
-          </div>
-        </div>
+      {/* Floating Centered Navigation - Smaller and Adjusted for Mobile */}
+      <div className="fixed top-4 left-1/2 transform -translate-x-1/2 bg-black bg-opacity-50 rounded-full p-2 px-4 shadow-lg z-50 flex space-x-2 text-sm sm:text-base sm:space-x-4">
+        <a href="#hero" onClick={(e) => { e.preventDefault(); document.getElementById('hero').scrollIntoView({ behavior: 'smooth' }); }} className={`text-white hover:text-primary transition-all ${activeSection === "hero" ? "text-primary font-bold" : "opacity-50"}`}>Home</a>
+        <a href="#story" onClick={(e) => { e.preventDefault(); document.getElementById('story').scrollIntoView({ behavior: 'smooth' }); }} className={`text-white hover:text-primary transition-all ${activeSection === "story" ? "text-primary font-bold" : "opacity-50"}`}>Story</a>
+        <a href="#tokenomics" onClick={(e) => { e.preventDefault(); document.getElementById('tokenomics').scrollIntoView({ behavior: 'smooth' }); }} className={`text-white hover:text-primary transition-all ${activeSection === "tokenomics" ? "text-primary font-bold" : "opacity-50"}`}>Quackonomics</a>
+        <a href="#trade" onClick={(e) => { e.preventDefault(); document.getElementById('trade').scrollIntoView({ behavior: 'smooth' }); }} className={`text-white hover:text-primary transition-all ${activeSection === "trade" ? "text-primary font-bold" : "opacity-50"}`}>Trade</a>
       </div>
 
       {/* Hero Section */}
@@ -27,9 +45,8 @@ export default function DuckBuckWebsite() {
         </div>
       </section>
 
-
       {/* Story Section */}
-      <section id="story" className="min-h-screen flex flex-col justify-center items-center bg-base-200 text-center p-10 rounded-lg shadow-lg">
+      <section id="story" className="min-h-screen flex flex-col justify-center items-center bg-base-200 text-center p-10 rounded-lg shadow-lg pt-24">
         <div className="container mx-auto max-w-5xl">
           <h2 className="text-4xl sm:text-5xl font-bold mb-8">What is Duck Buck?</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -53,8 +70,9 @@ export default function DuckBuckWebsite() {
         </div>
       </section>
 
+
       {/* Tokenomics Section */}
-      <section id="tokenomics" className="min-h-screen flex flex-col justify-center items-center bg-gray-900 text-center p-10 rounded-lg shadow-lg">
+      <section id="tokenomics" className="min-h-screen flex flex-col justify-center items-center bg-gray-900 text-center p-10 rounded-lg shadow-lg pt-24">
         <div className="container mx-auto flex flex-col md:flex-row items-center justify-between text-left">
           <div className="md:w-1/3 mb-6 md:mb-0">
             <h2 className="text-3xl sm:text-5xl font-bold">$DBX Quackonomics</h2>
@@ -89,7 +107,7 @@ export default function DuckBuckWebsite() {
       </section>
 
            {/* How to Trade Section */}
-           <section id="trade" className="min-h-screen flex flex-col justify-center items-center bg-base-200 text-center p-10 rounded-lg shadow-lg">
+           <section id="trade" className="min-h-screen flex flex-col justify-center items-center bg-base-200 text-center p-10 rounded-lg shadow-lg pt-24">
         <div className="container mx-auto max-w-4xl">
           <h2 className="text-4xl sm:text-5xl font-bold mb-8">How to Buy Duck Bucks ($DBX)</h2>
           <div className="space-y-6 text-left">
@@ -131,11 +149,6 @@ export default function DuckBuckWebsite() {
           </div>
         </div>
       </section>
-
-      {/* Smooth Scroll Behavior */}
-      <style>{`
-        html { scroll-behavior: smooth; }
-      `}</style>
     </div>
   );
 }
