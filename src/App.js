@@ -137,7 +137,7 @@ export default function DuckBuckWebsite() {
             <div className="card bg-base-100 p-6 shadow-md">
               <h3 className="text-sm font-bold text-primary uppercase">Step 5: Add $DBX to MetaMask</h3>
               <p>If $DBX doesn’t appear in your wallet, manually add the token:</p>
-              <ul className="list-disc list-inside mt-2">
+              <ul className="list-disc list-inside mt-2 break-all">
                 <li>Click "Import Tokens" in MetaMask</li>
                 <li>Paste the $DBX contract address: <strong>0x1a07a18c1636348b46837660b250cabbf9b129ce</strong></li>
                 <li>Click "Add Custom Token"</li>
